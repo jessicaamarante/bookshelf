@@ -1,25 +1,4 @@
-# README
+## bookshelf 📚
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# bookshelf
+Bookshelf is a web application idea for adding and managing your readings, it's a much simpler idea compared to the [Goodreads](https://www.goodreads.com/) app.\
+I'm working on this project for college and also to practice the Ruby on Rails programming language.'
