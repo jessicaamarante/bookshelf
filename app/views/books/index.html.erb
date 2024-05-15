@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bookshelf</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Bookshelf</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <div class="container-flouid">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="header d-flex">
-          <a class="navbar-brand" href="/">
-            <h3>Bookshelf</h3>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mr-10">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">My books</a>
-              </li>
-            </ul>
-            <div class="input-group px-2">
-              <input type="text" class="form-control" placeholder="Search books" aria-label="Search books" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Button</button>
-              </div>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <div class="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <h3>Bookshelf</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+            <li class="nav-item mr-10">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">My books</a>
+            </li>
+          </ul>
+          <div class="input-group px-2">
+            <input type="text" class="form-control" placeholder="Search books" aria-label="Search books" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Button</button>
             </div>
-            <form class="d-flex">
-              <a class="btn btn-outline-primary bg-info-subtle me-2" href="#">Login</a>
-              <a class="btn btn-outline-success" href="#">Become member</a>
-            </form>
+          </div>
+          <div class="d-flex ms-auto">
+            <a class="btn btn-outline-primary bg-info-subtle me-2" href="#">Login</a>
+            <a class="btn btn-outline-success" href="#">Become member</a>
           </div>
         </div>
-      </nav>
-    </div>
-    <div class="d-flex p-2 ">
-      <div class="card mx-4" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="d-flex p-2">
+    <div class="card mx-4" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
 
 <% @books_info.each do |book| %>
