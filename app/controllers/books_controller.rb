@@ -9,11 +9,12 @@ class BooksController < ApplicationController
 
     @books = body_json['results']
     @books_info = []
-
+    
     @books.each do |book|
       book_info = {
         title: book['title'],
-        author: book['authors']
+        author: book['authors'],
+        image: book['formats']
       }
       @books_info << book_info
     end
