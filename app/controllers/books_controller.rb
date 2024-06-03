@@ -1,4 +1,5 @@
 require 'faraday'
+require 'devise'
 
 class BooksController < ApplicationController
 
@@ -23,5 +24,8 @@ class BooksController < ApplicationController
 
   def want_to_read
     book = params[:book_id]
+    user = current_user # ta exibindo o usuario atual no console mas ta salvando como nil no banco ._. -ver dps
+    user_book = UserBook.new(user_id: user, book_id: book, status: "want_to_read")
+    user_book.save!
   end
 end
