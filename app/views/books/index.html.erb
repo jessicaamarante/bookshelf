@@ -23,12 +23,12 @@
           <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
             <li class="nav-item mr-10">
               <% if user_signed_in? %>
-                <%=  link_to 'Home', '#', class: 'nav-link active', 'aria-current': 'page' %>
+                <%=  link_to 'Home', books_path, class: 'nav-link active', 'aria-current': 'page' %>
               <% end %>
             </li>
             <li class="nav-item">
               <% if user_signed_in? %>
-                <%=  link_to 'My books', '#', class: 'nav-link active' %>
+                <%=  link_to 'My books', my_books_path, class: 'nav-link active' %>
               <% end %>
             </li>
           </ul>
