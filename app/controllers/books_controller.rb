@@ -28,4 +28,8 @@ class BooksController < ApplicationController
     user_book = UserBook.new(user_id: user, book_id: book, status: "want_to_read")
     user_book.save!
   end
+
+  def my_books
+
+  end
 end
