@@ -39,8 +39,10 @@
             </div>
           </div>
           <div class="d-flex ms-auto">
-            <%= link_to 'Login', user_session_path,  class: 'btn btn-outline-primary bg-dark-subtle text-dark border-white me-2' %>
-            <%= link_to 'Become member', new_user_registration_path, class: 'btn btn-outline-success bg-dark-subtle text-dark border-white' %>
+             <% if !user_signed_in? %>
+              <%= link_to 'Login', user_session_path,  class: 'btn btn-outline-primary bg-dark-subtle text-dark border-white me-2' %>
+              <%= link_to 'Become member', new_user_registration_path, class: 'btn btn-outline-success bg-dark-subtle text-dark border-white' %>
+            <% end %>
           </div>
         </div>
       </div>
