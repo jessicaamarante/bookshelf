@@ -20,13 +20,15 @@ class BooksController < ApplicationController
       }
       @books_info << book_info
     end
-  end 
+  end
 
   def want_to_read
     book = params[:book_id]
-    user = current_user # ta exibindo o usuario atual no console mas ta salvando como nil no banco ._. -ver dps
-    user_book = UserBook.new(user_id: user, book_id: book, status: "want_to_read")
+    user_book = UserBook.new(user_id: current_user.id, book_id: book, status: "want_to_read")
     user_book.save!
+    flash[:notice] = "Book adding to your want to read list"
+    redirect_to root_path
+
   end
 
   def my_books
