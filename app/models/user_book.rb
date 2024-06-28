@@ -1,3 +1,3 @@
 class UserBook < ApplicationRecord
-    validates :user_id, :user_book, :status, presence: true
+    validates :user_id, :book_id, :status, presence: true
 end
