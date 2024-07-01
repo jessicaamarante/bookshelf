@@ -31,7 +31,8 @@ class BooksController < ApplicationController
 
   end
 
-  def my_books
-
+  def show_my_books
+    UserBook.get_books(current_user)
   end
+
 end
