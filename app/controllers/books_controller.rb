@@ -34,16 +34,13 @@ class BooksController < ApplicationController
   def show_my_books
     book_ids = UserBook.get_books(current_user)
     connection = Faraday.new(url: 'https://gutendex.com')
-    book_details = []
-
-    binding.irb
+    @book_details = []
 
     book_ids.each do |book_id|
-
-      response = connection.get("/books/#{book_id}")
-      if response == 200
+      response = connection.get("/books/#{book_id}/")
+      if response.status == 200
         body_json = JSON.parse(response.body)
-        book_details << body_json
+        @book_details << body_json
       end
     end
   end
