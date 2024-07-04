@@ -11,11 +11,49 @@
   </head>
 
   <body>
+    <div class="">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <h3>Bookshelf</h3>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mr-10">
+                <% if user_signed_in? %>
+                  <%=  link_to 'Home', books_path, class: 'nav-link active', 'aria-current': 'page' %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <% if user_signed_in? %>
+                  <%=  link_to 'My books', show_my_books_path, class: 'nav-link active' %>
+                <% end %>
+              </li>
+            </ul>
+            <div class="input-group px-2">
+              <input type="text" class="form-control" placeholder="Search books" aria-label="Search books" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Search</button>
+              </div>
+            </div>
+            <div class="d-flex ms-auto">
+              <% if !user_signed_in? %>
+                <%= link_to 'Login', user_session_path,  class: 'btn btn-outline-primary bg-dark-subtle text-dark border-white me-2' %>
+                <%= link_to 'Become member', new_user_registration_path, class: 'btn btn-outline-success bg-dark-subtle text-dark border-white' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
     <%= yield %>
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>
