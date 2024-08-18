@@ -8,3 +8,5 @@ WORKDIR /usr/src/app
 COPY . .
 RUN bundle install
 RUN apt-get update -qq && apt-get install -y nodejs && apt-get install -y yarn nodejs
+
+ENTRYPOINT ["./entrypoint.sh"]
