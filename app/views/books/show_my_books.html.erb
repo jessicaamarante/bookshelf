@@ -9,6 +9,8 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 
+  <%= render partial: 'layouts/sidebar' %>
+
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
@@ -16,6 +18,7 @@
 </head>
 <body>
 <div class="container mt-4">
+<h2>My books</h2>
 <div class="row">
   <% @books_to_list.each do |book| %>
     <div class="col-md-4 mb-4">
