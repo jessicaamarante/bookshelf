@@ -33,15 +33,36 @@ class BooksController < ApplicationController
 
   def show_my_books
     book_ids = UserBook.get_books(current_user)
+
+    @books_to_list = []
+
+    if book_ids.present?
+      @books_to_show = get_books_for_user(book_ids)
+
+      @books_to_show.each do |book|
+        book_info = {
+          id: book['id'],
+          title: book['title'],
+          author: book['authors'],
+          image: book['formats']
+        }
+        @books_to_list << book_info
+      end
+    end
+  end
+
+  def get_books_for_user(book_ids)
     connection = Faraday.new(url: 'https://gutendex.com')
-    @book_details = []
+
+    @books = []
 
     book_ids.each do |book_id|
       response = connection.get("/books/#{book_id}/")
       if response.status == 200
-        body_json = JSON.parse(response.body)
-        @book_details << body_json
+        parsed_books = JSON.parse(response.body)
+        @books << parsed_books
       end
     end
+    @books
   end
 end
