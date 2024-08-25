@@ -28,7 +28,12 @@ class BooksController < ApplicationController
     user_book.save!
     flash[:notice] = "Book adding to your want to read list"
     redirect_to root_path
+  end
 
+  def want_to_read_books_list
+    books_to_read_by_user = UserBook.want_to_read_books_list(current_user)
+    books_list = get_books_for_user(books_to_read_by_user)
+    @want_to_read_books = build_book_info(books_list)
   end
 
   def show_my_books

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/books', to: 'books#index'
   post '/want_to_read', to: 'books#want_to_read'
   get '/show_my_books', to: 'books#show_my_books'
+  get '/want_to_read_books_list', to: 'books#want_to_read_books_list'
 
   root "books#index"
 end
