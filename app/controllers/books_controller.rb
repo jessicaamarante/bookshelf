@@ -70,4 +70,19 @@ class BooksController < ApplicationController
     end
     @books
   end
+
+  def build_book_info(books)
+    books_to_list = []
+
+    @books.each do |book|
+      book_info = {
+        id: book['id'],
+        title: book['title'],
+        author: book['authors'],
+        image: book['formats']
+      }
+      books_to_list << book_info
+    end
+    books_to_list
+  end
 end
