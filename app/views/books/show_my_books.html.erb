@@ -20,7 +20,7 @@
 <div class="container mt-4">
 <h2>My books</h2>
 <div class="row">
-  <% @books_to_list.each do |book| %>
+  <% @all_books_by_user.each do |book| %>
     <div class="col-md-4 mb-4">
       <div class="card mx-4" style="width: 18rem;">
         <img src="<%= book[:image]["image/jpeg"] %>" class="card-img-top" alt="<%= book[:title] %>" style="width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;">

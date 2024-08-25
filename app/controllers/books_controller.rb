@@ -32,27 +32,18 @@ class BooksController < ApplicationController
 
   def want_to_read_books_list
     books_to_read_by_user = UserBook.want_to_read_books_list(current_user)
-    books_list = get_books_for_user(books_to_read_by_user)
-    @want_to_read_books = build_book_info(books_list)
+    if books_to_read_by_user.present?
+      books_list = get_books_for_user(books_to_read_by_user)
+      @want_to_read_books = build_book_info(books_list)
+    end
   end
 
   def show_my_books
     book_ids = UserBook.get_books(current_user)
 
-    @books_to_list = []
-
     if book_ids.present?
-      @books_to_show = get_books_for_user(book_ids)
-
-      @books_to_show.each do |book|
-        book_info = {
-          id: book['id'],
-          title: book['title'],
-          author: book['authors'],
-          image: book['formats']
-        }
-        @books_to_list << book_info
-      end
+      books_list = get_books_for_user(book_ids)
+      @all_books_by_user = build_book_info(books_list)
     end
   end
 
