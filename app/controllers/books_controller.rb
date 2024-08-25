@@ -38,7 +38,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def show_my_books
+  def show_all_books_by_user
     book_ids = UserBook.get_books(current_user)
 
     if book_ids.present?
