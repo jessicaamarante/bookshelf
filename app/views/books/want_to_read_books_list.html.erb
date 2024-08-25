@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My books</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+
+  <%= render partial: 'layouts/sidebar' %>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+</head>
+<body>
+<div class="container mt-4">
+<h2>Want to read books</h2>
+<div class="row">
+  <% @want_to_read_books.each do |book| %>
+    <div class="col-md-4 mb-4">
+      <div class="card mx-4" style="width: 18rem;">
+        <img src="<%= book[:image]["image/jpeg"] %>" class="card-img-top" alt="<%= book[:title] %>" style="width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+        <div class="card-body">
+          <h5 class="card-title"><%= book[:title] %></h5>
+          <p class="card-text">Author: <%= book[:author][0]["name"] %></p>
+          <% if user_signed_in? %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Want to Read
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= form_with url: want_to_read_path, method: :post, local: true do %>
+                    <%= hidden_field_tag :book_id, book[:id] %>
+                    <%= submit_tag 'Want to Read', class: 'dropdown-item' %>
+                  <% end %>
+                </li>
+                <li><button class="dropdown-item" type="button">Currently reading</button></li>
+                <li><button class="dropdown-item" type="button">Read</button></li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+
+</body>
+</html>
