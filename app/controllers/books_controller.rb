@@ -30,6 +30,14 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def current_reading
+    book = params[:book_id]
+    user_book = UserBook.new(user_id: current_user.id, book_id: book, status: "current_reading")
+    user_book.save!
+    flash[:notice] = "Book adding to your current read list"
+    redirect_to root_path
+  end
+
   def want_to_read_books_list
     books_to_read_by_user = UserBook.want_to_read_books_list(current_user)
     if books_to_read_by_user.present?
