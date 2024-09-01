@@ -31,5 +31,18 @@ class UserBook < ApplicationRecord
 
       books_to_read
     end
+
+    def get_books_to_list(current_user)
+      current_read = []
+      user = current_user
+
+      current_read_books = UserBook.where(["user_id = ? and status = ?", user, "current_read"])
+
+      current_read_books.each do |book|
+        current_read << book.book_id
+      end
+
+      current_read
+    end
   end
 end

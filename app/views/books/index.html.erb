@@ -39,9 +39,9 @@
                       <% end %>
                     </li>
                     <li>
-                      <%= form_with url: current_reading_path, method: :post, local: true do %>
+                      <%= form_with url: current_read_path, method: :post, local: true do %>
                         <%= hidden_field_tag :book_id, book[:id] %>
-                        <%= submit_tag 'Current Reading', class: 'dropdown-item' %>
+                        <%= submit_tag 'Current Read', class: 'dropdown-item' %>
                       <% end %>
                     </li>
                     <li><button class="dropdown-item" type="button">Read</button></li>

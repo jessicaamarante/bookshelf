@@ -46,6 +46,14 @@ class BooksController < ApplicationController
     end
   end
 
+  def current_read_books_list
+    current_read_by_user = UserBook.get_books_to_list(current_user)
+    if current_read_by_user.present?
+      books_list = get_books_for_user(current_read_by_user)
+      @current_read_books = build_book_info(books_list)
+    end
+  end
+
   def show_all_books_by_user
     book_ids = UserBook.get_books(current_user)
 
