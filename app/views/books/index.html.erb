@@ -44,7 +44,12 @@
                         <%= submit_tag 'Current Read', class: 'dropdown-item' %>
                       <% end %>
                     </li>
-                    <li><button class="dropdown-item" type="button">Read</button></li>
+                    <li>
+                      <%= form_with url: already_read_path, method: :post, local: true do %>
+                        <%= hidden_field_tag :book_id, book[:id] %>
+                        <%= submit_tag 'Already Read', class: 'dropdown-item' %>
+                      <% end %>
+                    </li>
                   </ul>
                 </div>
               <% end %>
