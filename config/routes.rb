@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/current_read_books_list', to: 'books#current_read_books_list'
   get '/already_read_books_list', to: 'books#already_read_books_list'
 
-  get '/profile', to: 'profile#profile'
+  get '/index', to: 'profile#index'
 
   root "books#index"
 end

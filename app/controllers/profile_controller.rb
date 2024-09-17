@@ -2,6 +2,6 @@ require 'devise'
 
 class ProfileController < ApplicationController
 
-  def profile
+  def index
   end
 end
