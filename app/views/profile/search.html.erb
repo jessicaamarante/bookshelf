@@ -36,30 +36,15 @@
 <body>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2 sidebar">
-			<div class="text-center">
-				<img src="profile-pic.jpg" alt="User Profile Picture" class="profile-pic">
-				<h2 class="username">Username</h2>
-			</div>
-			<nav class="nav flex-column">
-				<a class="nav-link active" href="#">Home</a>
-				<%= link_to 'Friends', search_path, class: 'nav-link' %>
-				<a class="nav-link" href="#">Favorites</a>
-				<a class="nav-link" href="#">Other option</a>
-				<a class="nav-link" href="#">Other option</a>
-			</nav>
-		</div>
-
 		<div class="col-md-3 mt-2">
 			<label for="search_friends" class="form-label">Search for friends:</label>
       <%= form_with url: search_path, method: :get, local: true do |form| %>
 			  <div class="input-group">
-          <%= form.text_field :email, value: params[:email], class: "form-control", id: "search_friends", placeholder: "name or email", aria: { label: "Search friends" } %>
+          <%= form.text_field :email, value: params[:email], class: "form-control", id: "search_friends", name: "email", placeholder: "name or email", aria: { label: "Search friends" } %>
           <%= form.submit 'Search', class: "btn btn-outline-secondary" %>
 			  </div>
       <% end %>
 		</div>
-
 	</div>
 </div>
 
