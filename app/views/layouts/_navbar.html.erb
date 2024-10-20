@@ -42,8 +42,8 @@
                           <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <%= link_to 'Profile', index_path, class: 'dropdown-item' %>
-                          <%= link_to 'Friends', search_path, class: 'dropdown-item' %>
+                          <%= link_to 'Profile', profile_path, class: 'dropdown-item' %>
+                          <%= link_to 'Friends', profile_path, class: 'dropdown-item' %>
                           <%= link_to 'Log Out', destroy_user_session_path, class: 'dropdown-item' %>
                         </div>
                       </li>

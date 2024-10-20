@@ -3,13 +3,13 @@ require 'devise'
 class ProfileController < ApplicationController
 
   def index
+    if params[:email].present?
+      friends = User.find_by(email: params[:email])
+      @friends = friends.email
+    end
+
   end
 
   def search
-    email = params[:email]
-    @user_to_follow = User.find_by(email: email)
-  end
-
-  def show_profile
   end
 end
