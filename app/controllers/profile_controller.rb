@@ -4,10 +4,8 @@ class ProfileController < ApplicationController
 
   def index
     if params[:email].present?
-      friends = User.find_by(email: params[:email])
-      @friends = friends.email
+      friends = User.where(email: params[:email])
     end
-
   end
 
   def search
