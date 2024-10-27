@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resource :follow, only: [:create, :destroy]
+
   end
 
   get '/books', to: 'books#index'
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/already_read_books_list', to: 'books#already_read_books_list'
 
   get '/index', to: 'profile#index', as: 'profile'
+  get 'profile/follow/:id', to: 'profile#follow', as: 'follow_user'
 
   root "books#index"
 end
