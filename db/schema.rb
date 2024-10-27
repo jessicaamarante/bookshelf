@@ -65,6 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_25_233341) do
   end
 
   add_foreign_key "profiles", "users"
-  add_foreign_key "user_friendships", "friends"
   add_foreign_key "user_friendships", "users"
+  add_foreign_key "user_friendships", "users", column: "friend_id"
 end
