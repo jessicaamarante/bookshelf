@@ -12,7 +12,6 @@ class ProfileController < ApplicationController
 
   def follow
     friend = User.find(params[:id])
-    current_user.follow(friend)
-    redirect_to profile_path, notice: "You are now following #{friend.email}"
+    @friend_followed = current_user.follow(friend)
   end
 end
