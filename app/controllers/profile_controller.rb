@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
   end
 
   def follow
-    friend = User.find(params[:id])
+    friend = Profile.find(params[:id])
     @friend_followed = current_user.follow(friend)
   end
 end
