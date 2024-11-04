@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get '/index', to: 'profile#index', as: 'profile'
   get 'profile/follow/:id', to: 'profile#follow', as: 'follow_user'
 
+  get '/show', to: 'user_friendship#show', as: 'show_user_friendship'
+
   root "books#index"
 end
