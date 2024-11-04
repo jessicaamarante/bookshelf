@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
+
+  after_create :create_profile
 
   has_many :user_friendships, foreign_key: :user_id, class_name: 'UserFriendship', dependent: :destroy
 
@@ -16,5 +18,11 @@ class User < ApplicationRecord
     unless self.user_friendships.exists?(friend_id: friend.id)
       self.user_friendships.create(friend_id: friend.id)
     end
+  end
+
+  private
+
+  def create_profile
+    Profile.create(user_id: self.id)
   end
 end
