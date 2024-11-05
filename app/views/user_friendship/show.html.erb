@@ -48,23 +48,36 @@
 			</nav>
 		</div>
 
-    <% if @friends.present? %>
+		<div class="col-md-10 feed">
+			<% if @friends.present? %>
 				<div class="row mt-4">
 					<div class="col-md-12">
 						<h5>Your Friends:</h5>
 						<div class="card">
 							<div class="card-body">
-								<ul class="list-group list-group-flush">
+								<div class="list-group">
 									<% @friends.each do |friend| %>
-										<li class="list-group-item d-flex justify-content-between align-items-center">
-											<%= friend.email %>
-											<%= link_to 'Unfollow', method: :get, class: 'btn btn-primary btn-sm', role: 'button' %>
-										</li>
+										<div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+											<div class="d-flex align-items-center">
+												<img src="https://via.placeholder.com/50" alt="Profile Picture" class="rounded-circle mr-3">
+												<div>
+													<h6 class="mb-0"><%= friend.email %></h6>
+													<% if friend.username.present? %>
+														<small class="text-muted">@<%= friend.username %></small>
+													<% end %>
+												</div>
+											</div>
+											<%= link_to 'Unfollow', class: 'btn btn-outline-danger btn-sm', role: 'button' %>
+										</div>
 									<% end %>
-								</ul>
+								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+			<% else %>
+				<div class="alert alert-info mt-4" role="alert">
+					You have no friends yet.
 				</div>
 			<% end %>
 		</div>
