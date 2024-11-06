@@ -67,7 +67,11 @@
 									<% @friends.each do |friend| %>
 										<li class="list-group-item d-flex justify-content-between align-items-center">
 											<%= friend.email %>
-											<%= link_to 'Follow', follow_user_path(friend), method: :get, class: 'btn btn-primary btn-sm', role: 'button' %>
+											<% if @following.include?(friend) %>
+                  			<%= link_to 'Unfollow', class: 'btn btn-secondary btn-sm', role: 'button' %>
+                			<% else %>
+                  			<%= link_to 'Follow', follow_user_path(friend), method: :post, class: 'btn btn-primary btn-sm', role: 'button' %>
+                			<% end %>
 										</li>
 									<% end %>
 								</ul>
