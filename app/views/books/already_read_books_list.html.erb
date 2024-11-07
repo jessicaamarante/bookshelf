@@ -18,20 +18,24 @@
 </head>
 <body>
 <div class="container mt-4">
-<h2>Current read books</h2>
+<h2>Already read books</h2>
 <div class="row">
-  <% @already_read_books.each do |book| %>
-    <div class="col-md-4 mb-4">
-      <div class="card mx-4" style="width: 18rem;">
-        <img src="<%= book[:image]["image/jpeg"] %>" class="card-img-top" alt="<%= book[:title] %>" style="width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;">
-        <div class="card-body">
-          <h5 class="card-title"><%= book[:title] %></h5>
-          <p class="card-text">Author:
-            <%= book[:author] && book[:author].any? ? book[:author][0]["name"] : "Unknown" %>
-          </p>
+  <% if @already_read_books.present? %>
+    <% @already_read_books.each do |book| %>
+      <div class="col-md-4 mb-4">
+        <div class="card mx-4" style="width: 18rem;">
+          <img src="<%= book[:image]["image/jpeg"] %>" class="card-img-top" alt="<%= book[:title] %>" style="width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+          <div class="card-body">
+            <h5 class="card-title"><%= book[:title] %></h5>
+            <p class="card-text">Author:
+              <%= book[:author] && book[:author].any? ? book[:author][0]["name"] : "Unknown" %>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <p>You have not any books yet.</p>
   <% end %>
 </div>
 </div>
