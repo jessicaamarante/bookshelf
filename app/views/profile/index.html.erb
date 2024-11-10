@@ -68,7 +68,7 @@
 										<li class="list-group-item d-flex justify-content-between align-items-center">
 											<%= friend.email %>
 											<% if @following.include?(friend) %>
-                  			<%= link_to 'Unfollow', class: 'btn btn-secondary btn-sm', role: 'button' %>
+                  			<%= button_to 'Unfollow', unfollow_friend_path(friend), method: :delete, class: 'btn btn-secondary btn-sm' %>
                 			<% else %>
                   			<%= link_to 'Follow', follow_user_path(friend), method: :post, class: 'btn btn-primary btn-sm', role: 'button' %>
                 			<% end %>

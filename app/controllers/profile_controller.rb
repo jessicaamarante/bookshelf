@@ -16,4 +16,9 @@ class ProfileController < ApplicationController
     friend = Profile.find(params[:id])
     @friend_followed = current_user.follow(friend)
   end
+
+  def unfollow
+    friend = UserFriendship.where(friend_id: params[:id], user_id: current_user)
+    current_user.unfollow(friend)
+  end
 end

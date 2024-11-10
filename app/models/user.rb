@@ -20,6 +20,10 @@ class User < ApplicationRecord
     end
   end
 
+  def unfollow(friend)
+    self.user_friendships.destroy(friend)
+  end
+
   private
 
   def create_profile
