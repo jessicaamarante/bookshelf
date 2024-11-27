@@ -67,7 +67,7 @@
 													<% end %>
 												</div>
 											</div>
-											<%= link_to 'Unfollow', class: 'btn btn-outline-danger btn-sm', role: 'button' %>
+											<%= button_to 'Unfollow', unfollow_friend_path(friend), method: :delete, class: 'btn btn-secondary btn-sm' %>
 										</div>
 									<% end %>
 								</div>
